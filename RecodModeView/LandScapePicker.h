@@ -6,8 +6,16 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@protocol LandScapePickerDelegate
+@optional
+- (void)pickerView:(UIPickerView *)pickerView didSelectAtIndex:(NSInteger)index;
+@end
 
 @interface LandScapePicker : UIView
 @property(nonatomic, copy) NSArray<NSString *> *titles;
-@property(nonatomic) UIColor *color;
+@property(nonatomic) UIColor *textColor;
+@property(nonatomic) UIFont *font;
+@property(nonatomic, weak) id <LandScapePickerDelegate> delegate;
+
+-(void)selectAtIndex:(NSInteger)index animated:(BOOL)animated;
 @end

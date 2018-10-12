@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "LandScapePicker.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <LandScapePickerDelegate>
 
 @end
 
@@ -22,9 +22,11 @@
     self.window.backgroundColor = [UIColor blackColor];
 
     UIViewController *controller = [UIViewController new];
-    LandScapePicker *picker= [[LandScapePicker alloc] initWithFrame:CGRectMake(0, 300, self.window.frame.size.width, 36)];
-    picker.color= [UIColor whiteColor];
-    picker.titles=@[@"拍摄", @"单击拍", @"长按拍"];
+    LandScapePicker *picker = [[LandScapePicker alloc] initWithFrame:CGRectMake(0, 300, self.window.frame.size.width, 40)];
+    picker.textColor = [UIColor whiteColor];
+    picker.titles = @[@"拍摄", @"单击拍", @"长按拍"];
+    picker.delegate = self;
+    [picker selectAtIndex:2 animated:NO];
     [controller.view addSubview:picker];
 
     self.window.rootViewController = controller;
@@ -32,6 +34,9 @@
     return YES;
 }
 
+- (void)pickerView:(UIPickerView *)pickerView didSelectAtIndex:(NSInteger)index {
+    NSLog(@"[%@ %s] %ld", self.class, sel_getName(_cmd), index);
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

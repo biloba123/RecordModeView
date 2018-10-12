@@ -36,12 +36,13 @@
 
     CGFloat centerX = (rect.origin.x + rect.size.width) / 2;
     CGFloat bottomY = rect.origin.y + rect.size.height;
-    CGRect potRect = CGRectMake(centerX - 2, bottomY - 8, 4, 4);
-    [[self.color colorWithAlphaComponent:0.8] setFill];
+    CGFloat y = bottomY - (rect.size.height - self.font.pointSize) / 2 / 2;
+    CGRect potRect = CGRectMake(centerX - 2, y - 2, 4, 4);
+    [[self.textColor colorWithAlphaComponent:0.8] setFill];
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextAddEllipseInRect(context, potRect);
     //CGContextSetFillColor在white和black下有问题，所以改用UIColor的setFill
-//    CGContextSetFillColor(context, CGColorGetComponents([self.color CGColor]));
+//    CGContextSetFillColor(context, CGColorGetComponents([self.textColor CGColor]));
     CGContextFillPath(context);
 }
 
@@ -65,8 +66,8 @@
     UILabel *label = [UILabel new];
     label.textAlignment = NSTextAlignmentCenter;
     label.text = self.titles[row];
-    label.font = [UIFont systemFontOfSize:14];
-    label.textColor = self.color;
+    label.font = self.font;
+    label.textColor = self.textColor;
     label.transform = CGAffineTransformMakeRotation(M_PI_2);
 
     return label;
@@ -80,11 +81,27 @@
     return 64;
 }
 
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    [self.delegate pickerView:pickerView didSelectAtIndex:row];
+}
+
 #pragma mark -- Setter
 
 - (void)setPickerView:(UIPickerView *)pickerView {
     _pickerView = pickerView;
     [self.pickerView reloadAllComponents];
 }
+
+- (UIFont *)font {
+    if (!_font) {
+        _font = [UIFont boldSystemFontOfSize:15];
+    }
+    return _font;
+}
+
+- (void)selectAtIndex:(NSInteger)index animated:(BOOL)animated {
+    [self.pickerView selectRow:index inComponent:0 animated:animated];
+}
+
 
 @end
