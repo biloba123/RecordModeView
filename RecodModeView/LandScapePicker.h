@@ -6,7 +6,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@protocol LandScapePickerDelegate
+@protocol LandScapePickerDelegate<NSObject>
 @optional
 - (void)pickerView:(UIPickerView *)pickerView didSelectAtIndex:(NSInteger)index;
 @end

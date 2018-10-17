@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LandScapePicker.h"
+#import "ViewController.h"
 
 @interface AppDelegate () <LandScapePickerDelegate>
 
@@ -21,15 +22,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor blackColor];
 
-    UIViewController *controller = [UIViewController new];
-    LandScapePicker *picker = [[LandScapePicker alloc] initWithFrame:CGRectMake(0, 300, self.window.frame.size.width, 40)];
-    picker.textColor = [UIColor whiteColor];
-    picker.titles = @[@"拍摄", @"单击拍", @"长按拍"];
-    picker.delegate = self;
-    [picker selectAtIndex:2 animated:NO];
-    [controller.view addSubview:picker];
-
-    self.window.rootViewController = controller;
+    self.window.rootViewController = [ViewController new];
     [self.window makeKeyAndVisible];
     return YES;
 }

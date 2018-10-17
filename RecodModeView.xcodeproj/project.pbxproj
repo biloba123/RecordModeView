@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B4F3067E9B6483DE102C5865 /* RecordModeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F3044F4B500C8A3EFE74C9 /* RecordModeView.m */; };
 		B4F30ED94C208EDB856D4D77 /* LandScapePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F3040803D63E2DBDD4C8BC /* LandScapePicker.m */; };
+		FA028ED22176F39800411E6D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA028ED02176F39800411E6D /* ViewController.m */; };
+		FA028ED32176F39800411E6D /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA028ED12176F39800411E6D /* ViewController.xib */; };
 		FAA6EBBB216EF24C00E0D314 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA6EBBA216EF24C00E0D314 /* AppDelegate.m */; };
 		FAA6EBC3216EF24F00E0D314 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA6EBC2216EF24F00E0D314 /* Assets.xcassets */; };
 		FAA6EBC6216EF24F00E0D314 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAA6EBC4216EF24F00E0D314 /* LaunchScreen.storyboard */; };
@@ -39,6 +41,9 @@
 		B4F3044F4B500C8A3EFE74C9 /* RecordModeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordModeView.m; sourceTree = "<group>"; };
 		B4F309AE2F611412E2412CBD /* RecordModeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordModeView.h; sourceTree = "<group>"; };
 		B4F30E2A596982E3983C156A /* LandScapePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandScapePicker.h; sourceTree = "<group>"; };
+		FA028ECF2176F39800411E6D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FA028ED02176F39800411E6D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FA028ED12176F39800411E6D /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		FAA6EBB6216EF24C00E0D314 /* RecodModeView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecodModeView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA6EBB9216EF24C00E0D314 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FAA6EBBA216EF24C00E0D314 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -112,6 +117,9 @@
 				B4F309AE2F611412E2412CBD /* RecordModeView.h */,
 				B4F3040803D63E2DBDD4C8BC /* LandScapePicker.m */,
 				B4F30E2A596982E3983C156A /* LandScapePicker.h */,
+				FA028ECF2176F39800411E6D /* ViewController.h */,
+				FA028ED02176F39800411E6D /* ViewController.m */,
+				FA028ED12176F39800411E6D /* ViewController.xib */,
 			);
 			path = RecodModeView;
 			sourceTree = "<group>";
@@ -238,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAA6EBC6216EF24F00E0D314 /* LaunchScreen.storyboard in Resources */,
+				FA028ED32176F39800411E6D /* ViewController.xib in Resources */,
 				FAA6EBC3216EF24F00E0D314 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,6 +276,7 @@
 				FAA6EBBB216EF24C00E0D314 /* AppDelegate.m in Sources */,
 				B4F3067E9B6483DE102C5865 /* RecordModeView.m in Sources */,
 				B4F30ED94C208EDB856D4D77 /* LandScapePicker.m in Sources */,
+				FA028ED22176F39800411E6D /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

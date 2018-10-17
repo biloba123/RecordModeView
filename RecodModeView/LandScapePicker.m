@@ -6,29 +6,41 @@
 #import "LandScapePicker.h"
 
 @interface LandScapePicker () <UIPickerViewDataSource, UIPickerViewDelegate>
-@property(nonatomic) UIPickerView *pickerView;
+@property(nonatomic, weak) UIPickerView *pickerView;
 @end
 
 @implementation LandScapePicker {
 
 }
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = [UIColor clearColor];
-
-        CGRect rect = CGRectMake(0, 0, frame.size.width, frame.size.height);
-        self.pickerView = [[UIPickerView alloc] initWithFrame:rect];
-        self.pickerView.delegate = self;
-        self.pickerView.dataSource = self;
-        self.pickerView.transform = CGAffineTransformMakeRotation(M_PI * 3 / 2);
-        //旋转后frame有变，需要重新设置
-        self.pickerView.frame = rect;
-
-        [self addSubview:self.pickerView];
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        [self initPickerView];
     }
 
     return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        [self initPickerView];
+    }
+
+    return self;
+}
+
+- (void)initPickerView {
+    self.backgroundColor = [UIColor clearColor];
+    CGRect rect = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+    UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:rect];
+    pickerView.delegate = self;
+    pickerView.dataSource = self;
+    pickerView.transform = CGAffineTransformMakeRotation(M_PI * 3 / 2);
+    //旋转后frame有变，需要重新设置
+    pickerView.frame = rect;
+
+    [self addSubview:pickerView];
+    self.pickerView = pickerView;
 }
 
 - (void)drawRect:(CGRect)rect {
@@ -82,7 +94,9 @@
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    [self.delegate pickerView:pickerView didSelectAtIndex:row];
+    if ([self.delegate respondsToSelector:@selector(pickerView:didSelectAtIndex:)]) {
+        [self.delegate pickerView:pickerView didSelectAtIndex:row];
+    }
 }
 
 #pragma mark -- Setter
